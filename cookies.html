@@ -1,0 +1,25 @@
+Set-Cookie: <cookie-name>=<cookie-value>
+
+//server sent to the client to include cookies
+
+HTTP/2.0 200 OK
+Content-Type: text/html
+Set-Cookie: yummy_cookie=choco
+Set-Cookie: tasty_cookie=strawberry
+
+//with every request client needs to include cookies
+
+GET /sample_page.html HTTP/2.0
+Host: www.example.org
+Cookie: yummy_cookie=choco; tasty_cookie=strawberry
+
+//life time of a cookie
+Set-Cookie: id=a3fWa; Expires=wed, 28 Jul 2021 07:40:00 GMT; 
+
+Set-Cookie: id=a3fWa; Expires=Thu, 21 Oct 2021 07:28:00 GMT; Secure; HttpOnly
+Set-Cookie: mykey=myvalue; SameSite=Strict
+<script>
+document.cookie = "yummy_cookie=choco";
+document.cookie = "tasty_cookie=strawberry";
+console.log(document.cookie);
+</script>
